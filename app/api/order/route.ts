@@ -9,10 +9,35 @@ export const runtime = "nodejs";
 
 function isAllowedOrigin(request: NextRequest) {
   const origin = request.headers.get("origin");
-  const allowed = process.env.FRONTEND_URL || process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin;
   if (!origin) return true;
+
   try {
-    return new URL(origin).origin === new URL(allowed).origin;
+    const normalizedOrigin = new URL(origin).origin;
+    const allowedOrigins = new Set<string>();
+
+    for (const value of [
+      request.nextUrl.origin,
+      process.env.FRONTEND_URL,
+      process.env.NEXT_PUBLIC_SITE_URL,
+    ]) {
+      if (!value) continue;
+      try {
+        allowedOrigins.add(new URL(value).origin);
+      } catch {
+        // Ignore malformed optional environment values and continue with the
+        // request host, which is the authoritative same-origin signal.
+      }
+    }
+
+    const forwardedHost = request.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
+    const host = forwardedHost || request.headers.get("host");
+    if (host) {
+      const forwardedProtocol = request.headers.get("x-forwarded-proto")?.split(",")[0]?.trim();
+      const protocol = forwardedProtocol || request.nextUrl.protocol.replace(":", "") || "https";
+      allowedOrigins.add(`${protocol}://${host}`);
+    }
+
+    return allowedOrigins.has(normalizedOrigin);
   } catch {
     return false;
   }
