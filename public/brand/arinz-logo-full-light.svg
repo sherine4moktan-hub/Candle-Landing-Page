@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title">
+  <title id="title">Arinz Candles</title>
+  <g transform="translate(24 23) scale(1.05)" fill="none" stroke="#D9B487" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M128 52c-24 27-30 52-18 75 5 10 11 17 18 23 7-6 13-13 18-23 12-23 6-48-18-75Z"/>
+    <path d="M58 92c0 35 13 59 39 72 12 6 22 8 31 8-1-10-5-20-12-31-14-24-33-40-58-49Z"/>
+    <path d="M198 92c0 35-13 59-39 72-12 6-22 8-31 8 1-10 5-20 12-31 14-24 33-40 58-49Z"/>
+    <path d="M34 140c15 35 42 53 82 54 5 0 9 0 12-1-7-16-19-29-36-39-19-11-38-15-58-14Z"/>
+    <path d="M222 140c-15 35-42 53-82 54-5 0-9 0-12-1 7-16 19-29 36-39 19-11 38-15 58-14Z"/>
+    <path d="M63 205h130"/>
+  </g>
+  <text x="350" y="193" fill="#FFF8EE" font-family="Georgia, 'Times New Roman', serif" font-size="116" letter-spacing="1">Arinz Candles</text>
+  <path d="M355 230h640" stroke="#9B7558" stroke-width="2"/>
+  <text x="358" y="273" fill="#D8C6B8" font-family="Arial, sans-serif" font-size="24" letter-spacing="9">WARMTH, BOTTLED IN AMBER</text>
+</svg>
